@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
+import "./Dashboard.css";
 
 function Dashboard() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState("");
+  const [preview, setPreview] = useState(null);
 
   const handleUpload = async () => {
     if (!file) return alert("Upload an image");
@@ -23,13 +25,34 @@ function Dashboard() {
     }
   };
 
-  return (
-    <div>
-      <h2>Leaf Disease Detection</h2>
-      <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-      <button onClick={handleUpload}>Analyze</button>
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    setPreview(URL.createObjectURL(selectedFile));
+  };
 
-      {result && <h3>Result: {result}</h3>}
+  return (
+    <div className="dashboard-container">
+      <div className="dashboard-card">
+        <h2>Leaf Disease Detection</h2>
+
+        <div className="upload-section">
+          <input type="file" onChange={handleFileChange} />
+
+          {preview && (
+            <img src={preview} alt="Preview" className="preview-image" />
+          )}
+
+          <button onClick={handleUpload}>Analyze Leaf</button>
+        </div>
+
+        {result && (
+          <div className="result-box">
+            <h3>Prediction Result</h3>
+            <p>{result}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
