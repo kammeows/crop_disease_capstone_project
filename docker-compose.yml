@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  server:
+    build: ./server
+    container_name: backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+      - ml-service
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/crop-disease-db
+
+  client:
+    build: ./client
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - server
+
+  ml-service:
+    build: ./ml-service
+    container_name: ml-service
+    ports:
+      - "8000:8000"
+
+volumes:
+  mongo-data:
