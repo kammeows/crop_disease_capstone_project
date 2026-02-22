@@ -1,0 +1,76 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1e5631, #4caf50);
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  width: 380px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 25px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.login-card input:focus {
+  border-color: #2e7d32;
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.primary-btn:hover {
+  background: #1b5e20;
+}
+
+.divider {
+  margin: 20px 0;
+  color: gray;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 12px;
+  background: #db4437;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  background: #c1351d;
+}
+
+.signup-text {
+  margin-top: 20px;
+}

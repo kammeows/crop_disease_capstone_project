@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "./Login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -28,27 +29,41 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="login-container">
+      <div className="login-card">
+        <h2>Welcome Back </h2>
+        <p className="subtitle">Login to continue</p>
 
-      <form onSubmit={handleLogin}>
-        <input
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
 
-      <hr />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-      <button onClick={handleGoogleLogin}>
-        Continue with Google
-      </button>
+          <button type="submit" className="primary-btn">
+            Login
+          </button>
+        </form>
+
+        <div className="divider">OR</div>
+
+        <button onClick={handleGoogleLogin} className="google-btn">
+          Continue with Google
+        </button>
+
+        <p className="signup-text">
+          Don't have an account? <Link to="/register">Sign Up</Link>
+        </p>
+      </div>
     </div>
   );
 }
