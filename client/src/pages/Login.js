@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
+// testing webhook
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,10 +14,10 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        { email, password }
-      );
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
+      });
 
       localStorage.setItem("token", res.data.token);
       navigate("/dashboard");
@@ -41,6 +43,15 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+      <form onSubmit={handleLogin}>
+        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+        <input
+          type="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+      </form>
 
           <input
             type="password"
@@ -64,6 +75,7 @@ function Login() {
           Don't have an account? <Link to="/register">Sign Up</Link>
         </p>
       </div>
+      <button onClick={handleGoogleLogin}>Continue with Google</button>
     </div>
   );
 }
