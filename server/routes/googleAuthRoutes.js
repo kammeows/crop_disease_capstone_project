@@ -36,12 +36,12 @@ router.get(
       // Create JWT token using logged-in user ID
       const token = jwt.sign(
         { id: req.user._id },
-        "secretkey", // later move to .env
+        process.env.JWT_SECRET,
         { expiresIn: "1d" }
       );
 
       // Redirect to frontend dashboard with token
-      res.redirect(`http://localhost:3000/dashboard?token=${token}`);
+      res.redirect(`http://localhost:3000/oauth-success?token=${token}`);
     } catch (error) {
       res.redirect("http://localhost:3000/");
     }

@@ -9,14 +9,10 @@
 .login-card {
   background: white;
   padding: 40px;
-  width: 380px;
+  width: 400px;
   border-radius: 15px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   text-align: center;
-}
-
-.login-card h2 {
-  margin-bottom: 5px;
 }
 
 .subtitle {
@@ -50,25 +46,6 @@
 
 .primary-btn:hover {
   background: #1b5e20;
-}
-
-.divider {
-  margin: 20px 0;
-  color: gray;
-}
-
-.google-btn {
-  width: 100%;
-  padding: 12px;
-  background: #db4437;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.google-btn:hover {
-  background: #c1351d;
 }
 
 .signup-text {
