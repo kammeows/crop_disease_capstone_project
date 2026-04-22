@@ -1,32 +1,42 @@
 .login-container {
-  height: 100vh;
+  min-height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #1e5631, #4caf50);
+  background-color: #f0f4f8;
+  padding: 20px;
 }
 
 .login-card {
   background: white;
-  padding: 40px;
-  width: 400px;
-  border-radius: 15px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 50px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
+.login-card h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
 .subtitle {
-  color: gray;
-  margin-bottom: 25px;
+  color: #7f8c8d;
+  margin-bottom: 35px;
 }
 
 .login-card input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  padding: 14px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #dcdde1;
   outline: none;
+  font-size: 1rem;
+  transition: border-color 0.3s;
 }
 
 .login-card input:focus {
@@ -35,19 +45,66 @@
 
 .primary-btn {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   background: #2e7d32;
   color: white;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
 }
 
 .primary-btn:hover {
   background: #1b5e20;
+  transform: translateY(-2px);
+}
+
+.divider {
+  margin: 25px 0;
+  color: #bdc3c7;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ecf0f1;
+}
+
+.google-btn {
+  width: 100%;
+  padding: 14px;
+  background: white;
+  color: #546e7a;
+  border: 1px solid #dcdde1;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.google-btn:hover {
+  background: #f8f9fa;
+  border-color: #bdc3c7;
 }
 
 .signup-text {
-  margin-top: 20px;
+  margin-top: 30px;
+  color: #7f8c8d;
+}
+
+.signup-text a {
+  color: #2e7d32;
+  text-decoration: none;
+  font-weight: 700;
 }

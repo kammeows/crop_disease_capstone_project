@@ -1,0 +1,75 @@
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 128, 128, 32)      896       
+                                                                 
+ conv2d_1 (Conv2D)           (None, 126, 126, 32)      9248      
+                                                                 
+ max_pooling2d (MaxPooling2  (None, 63, 63, 32)        0         
+ D)                                                              
+                                                                 
+ conv2d_2 (Conv2D)           (None, 63, 63, 64)        18496     
+                                                                 
+ conv2d_3 (Conv2D)           (None, 61, 61, 64)        36928     
+                                                                 
+ max_pooling2d_1 (MaxPoolin  (None, 30, 30, 64)        0         
+ g2D)                                                            
+                                                                 
+ conv2d_4 (Conv2D)           (None, 30, 30, 128)       73856     
+                                                                 
+ conv2d_5 (Conv2D)           (None, 28, 28, 128)       147584    
+                                                                 
+ max_pooling2d_2 (MaxPoolin  (None, 14, 14, 128)       0         
+ g2D)                                                            
+                                                                 
+ conv2d_6 (Conv2D)           (None, 14, 14, 256)       295168    
+                                                                 
+ conv2d_7 (Conv2D)           (None, 12, 12, 256)       590080    
+                                                                 
+ max_pooling2d_3 (MaxPoolin  (None, 6, 6, 256)         0         
+ g2D)                                                            
+                                                                 
+ conv2d_8 (Conv2D)           (None, 6, 6, 512)         1180160   
+                                                                 
+ conv2d_9 (Conv2D)           (None, 4, 4, 512)         2359808   
+                                                                 
+ max_pooling2d_4 (MaxPoolin  (None, 2, 2, 512)         0         
+ g2D)                                                            
+                                                                 
+ dropout (Dropout)           (None, 2, 2, 512)         0         
+                                                                 
+ flatten (Flatten)           (None, 2048)              0         
+                                                                 
+ dense (Dense)               (None, 1500)              3073500   
+                                                                 
+ dropout_1 (Dropout)         (None, 1500)              0         
+                                                                 
+ dense_1 (Dense)             (None, 38)                57038     
+                                                                 
+=================================================================
+Total params: 7842762 (29.92 MB)
+Trainable params: 7842762 (29.92 MB)
+Non-trainable params: 0 (0.00 Byte)
+
+Epoch 1/10
+2024-01-14 13:40:08.324416: I tensorflow/core/grappler/optimizers/custom_graph_optimizer_registry.cc:117] Plugin optimizer for device_type GPU is enabled.
+2197/2197 [==============================] - 231s 105ms/step - loss: 1.3572 - accuracy: 0.6019 - val_loss: 0.4827 - val_accuracy: 0.8453
+Epoch 2/10
+2197/2197 [==============================] - 231s 105ms/step - loss: 0.5050 - accuracy: 0.8420 - val_loss: 0.3038 - val_accuracy: 0.9009
+Epoch 3/10
+2197/2197 [==============================] - 240s 109ms/step - loss: 0.3288 - accuracy: 0.8974 - val_loss: 0.4000 - val_accuracy: 0.8770
+Epoch 4/10
+2197/2197 [==============================] - 251s 114ms/step - loss: 0.2559 - accuracy: 0.9208 - val_loss: 0.2458 - val_accuracy: 0.9245
+Epoch 5/10
+2197/2197 [==============================] - 256s 116ms/step - loss: 0.2006 - accuracy: 0.9371 - val_loss: 0.2028 - val_accuracy: 0.9383
+Epoch 6/10
+2197/2197 [==============================] - 263s 120ms/step - loss: 0.1701 - accuracy: 0.9481 - val_loss: 0.2165 - val_accuracy: 0.9399
+Epoch 7/10
+2197/2197 [==============================] - 261s 119ms/step - loss: 0.1447 - accuracy: 0.9565 - val_loss: 0.2028 - val_accuracy: 0.9443
+Epoch 8/10
+2197/2197 [==============================] - 263s 120ms/step - loss: 0.1314 - accuracy: 0.9615 - val_loss: 0.4922 - val_accuracy: 0.8850
+Epoch 9/10
+2197/2197 [==============================] - 265s 121ms/step - loss: 0.1189 - accuracy: 0.9659 - val_loss: 0.2055 - val_accuracy: 0.9503
+Epoch 10/10
+2197/2197 [==============================] - 271s 123ms/step - loss: 0.1028 - accuracy: 0.9707 - val_loss: 0.1969 - val_accuracy: 0.9508

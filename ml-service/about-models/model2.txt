@@ -1,0 +1,76 @@
+Model: "sequential"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Layer (type)                    ┃ Output Shape           ┃       Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ mobilenetv2_1.00_224            │ (None, 7, 7, 1280)     │     2,257,984 │
+│ (Functional)                    │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ global_average_pooling2d        │ (None, 1280)           │             0 │
+│ (GlobalAveragePooling2D)        │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization             │ (None, 1280)           │         5,120 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 512)            │       655,872 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout (Dropout)               │ (None, 512)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ batch_normalization_1           │ (None, 512)            │         2,048 │
+│ (BatchNormalization)            │                        │               │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_1 (Dense)                 │ (None, 256)            │       131,328 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_1 (Dropout)             │ (None, 256)            │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense_2 (Dense)                 │ (None, 38)             │         9,766 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 3,062,118 (11.68 MB)
+ Trainable params: 800,550 (3.05 MB)
+ Non-trainable params: 2,261,568 (8.63 MB)
+
+ TEST SET Classification Report
+============================================================
+                                                    precision    recall  f1-score   support
+
+                                Apple___Apple_scab     0.9670    0.8800    0.9215       100
+                                 Apple___Black_rot     0.9592    0.9495    0.9543        99
+                          Apple___Cedar_apple_rust     0.9884    0.9659    0.9770        88
+                                   Apple___healthy     0.9333    0.9800    0.9561       100
+                               Blueberry___healthy     1.0000    0.9667    0.9831        90
+          Cherry_(including_sour)___Powdery_mildew     0.9881    0.9881    0.9881        84
+                 Cherry_(including_sour)___healthy     0.9681    1.0000    0.9838        91
+Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot     0.9467    0.8659    0.9045        82
+                       Corn_(maize)___Common_rust_     0.9694    1.0000    0.9845        95
+               Corn_(maize)___Northern_Leaf_Blight     0.9000    0.9474    0.9231        95
+                            Corn_(maize)___healthy     1.0000    1.0000    1.0000        93
+                                 Grape___Black_rot     0.8922    0.9681    0.9286        94
+                      Grape___Esca_(Black_Measles)     0.9570    0.9271    0.9418        96
+        Grape___Leaf_blight_(Isariopsis_Leaf_Spot)     1.0000    0.9651    0.9822        86
+                                   Grape___healthy     0.9882    1.0000    0.9941        84
+          Orange___Haunglongbing_(Citrus_greening)     0.9612    0.9900    0.9754       100
+                            Peach___Bacterial_spot     0.9326    0.9121    0.9222        91
+                                   Peach___healthy     0.8431    1.0000    0.9149        86
+                     Pepper,_bell___Bacterial_spot     0.8846    0.9684    0.9246        95
+                            Pepper,_bell___healthy     0.8932    0.9293    0.9109        99
+                             Potato___Early_blight     0.9495    0.9691    0.9592        97
+                              Potato___Late_blight     0.9773    0.8866    0.9297        97
+                                  Potato___healthy     0.9512    0.8571    0.9017        91
+                               Raspberry___healthy     0.9778    0.9888    0.9832        89
+                                 Soybean___healthy     0.9143    0.9505    0.9320       101
+                           Squash___Powdery_mildew     1.0000    1.0000    1.0000        86
+                          Strawberry___Leaf_scorch     1.0000    0.9318    0.9647        88
+                              Strawberry___healthy     0.9886    0.9560    0.9721        91
+                           Tomato___Bacterial_spot     0.8211    0.9176    0.8667        85
+                             Tomato___Early_blight     0.8143    0.5938    0.6867        96
+                              Tomato___Late_blight     0.8161    0.7717    0.7933        92
+                                Tomato___Leaf_Mold     0.7241    0.8936    0.8000        94
+                       Tomato___Septoria_leaf_spot     0.7439    0.7011    0.7219        87
+     Tomato___Spider_mites Two-spotted_spider_mite     0.8354    0.7586    0.7952        87
+                              Tomato___Target_Spot     0.6437    0.6154    0.6292        91
+            Tomato___Tomato_Yellow_Leaf_Curl_Virus     0.9468    0.9082    0.9271        98
+                      Tomato___Tomato_mosaic_virus     0.9545    0.9438    0.9492        89
+                                  Tomato___healthy     0.8182    0.9375    0.8738        96
+
+                                          accuracy                         0.9155      3503
+                                         macro avg     0.9171    0.9154    0.9146      3503
+                                      weighted avg     0.9170    0.9155    0.9146      3503
