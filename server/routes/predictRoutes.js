@@ -8,7 +8,8 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 // Changed to localhost since you are running locally without Docker
-const ML_SERVICE_URL = process.env.ML_SERVICE_URL || "http://localhost:8000/predict";
+const ML_SERVICE_URL =
+  process.env.ML_SERVICE_URL || "http://localhost:8000/predict";
 
 router.post("/", upload.single("file"), async (req, res) => {
   try {
@@ -21,23 +22,19 @@ router.post("/", upload.single("file"), async (req, res) => {
       filename: req.file.originalname,
       contentType: req.file.mimetype,
     });
-    
+
     // Get model from body, default to the 38-class model
     const modelName = req.body.model || "default_model_38.h5";
     formData.append("model", modelName);
-    
+
     console.log(`[Backend] Target ML URL: ${ML_SERVICE_URL}`);
     console.log(`[Backend] Selected Model: ${modelName}`);
 
-    const response = await axios.post(
-      ML_SERVICE_URL,
-      formData,
-      {
-        headers: {
-          ...formData.getHeaders(),
-        },
+    const response = await axios.post(ML_SERVICE_URL, formData, {
+      headers: {
+        ...formData.getHeaders(),
       },
-    );
+    });
 
     console.log(`[Backend] ML Response:`, response.data.prediction);
     res.json(response.data);
@@ -46,9 +43,9 @@ router.post("/", upload.single("file"), async (req, res) => {
     if (error.response) {
       console.error("[Backend] ML Service Error Data:", error.response.data);
     }
-    res.status(500).json({ 
-      error: "Prediction failed", 
-      details: error.response?.data?.error || error.message 
+    res.status(500).json({
+      error: "Prediction failed",
+      details: error.response?.data?.error || error.message,
     });
   }
 });

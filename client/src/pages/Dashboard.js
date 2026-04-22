@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
 import "./Dashboard.css";
 
 const MODEL_INFO = {
@@ -10,13 +12,13 @@ const MODEL_INFO = {
     efficiency: "High",
     accuracy: "98%",
   },
-  // "model2.h5": {
-  //   name: "Alternative CNN Model",
-  //   description:
-  //     "An alternative high-performance model that also supports the full range of 38 disease classes.",
-  //   efficiency: "Medium",
-  //   accuracy: "96%",
-  // },
+  "model2.h5": {
+    name: "Alternative CNN Model",
+    description:
+      "An alternative high-performance model that also supports the full range of 38 disease classes.",
+    efficiency: "Medium",
+    accuracy: "96%",
+  },
   "efficientNet_model.h5": {
     name: "Health Classifier",
     description:
@@ -33,6 +35,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [selectedModel, setSelectedModel] = useState("default_model_38.h5");
   const [models, setModels] = useState(Object.keys(MODEL_INFO));
+  const [history, setHistory] = useState([]);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -63,13 +66,90 @@ function Dashboard() {
           },
         },
       );
-      setResult(response.data);
+
+      const newResult = {
+        ...response.data,
+        timestamp: new Date().toLocaleString(),
+        imagePreview: preview, // Store preview URL for display in history
+      };
+
+      setResult(newResult);
+      setHistory((prev) => [newResult, ...prev]);
     } catch (error) {
       console.error("Error analyzing image:", error);
       alert("Analysis failed. Please try again.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const downloadPDF = async () => {
+    if (history.length === 0) return alert("No history to download");
+
+    const doc = new jsPDF();
+    let yPos = 20;
+
+    doc.setFontSize(22);
+    doc.text("Crop Disease Analysis Report", 105, yPos, { align: "center" });
+    yPos += 10;
+    doc.setFontSize(12);
+    doc.text(`Generated on: ${new Date().toLocaleString()}`, 105, yPos, {
+      align: "center",
+    });
+    yPos += 20;
+
+    for (let i = 0; i < history.length; i++) {
+      const item = history[i];
+
+      if (yPos > 250) {
+        doc.addPage();
+        yPos = 20;
+      }
+
+      doc.setFontSize(16);
+      doc.setTextColor(46, 125, 50); // Green color for headings
+      doc.text(`Analysis #${history.length - i}: ${item.prediction}`, 20, yPos);
+      doc.setTextColor(0, 0, 0);
+      yPos += 10;
+
+      doc.setFontSize(10);
+      // doc.text(`Model: ${item.model_used} | Confidence: ${(item.confidence * 100).toFixed(2)}% | Date: ${item.timestamp}`, 20, yPos);
+      yPos += 10;
+
+      if (item.details) {
+        const details = item.details;
+
+        const tableData = [
+          ["Plant", details.plant || "N/A"],
+          ["Status", details.status || "N/A"],
+          ["About", details.about || "N/A"],
+          ["Symptoms", details.symptoms ? details.symptoms.join(", ") : "N/A"],
+          [
+            "Treatment",
+            details.treatment ? details.treatment.join(", ") : "N/A",
+          ],
+          [
+            "Prevention",
+            details.prevention ? details.prevention.join(", ") : "N/A",
+          ],
+        ];
+
+        autoTable(doc, {
+          startY: yPos,
+          body: tableData,
+          theme: "grid",
+          styles: { fontSize: 9, cellPadding: 3 },
+          columnStyles: { 0: { fontStyle: "bold", width: 30 } },
+          margin: { left: 20, right: 20 },
+        });
+
+        yPos = doc.lastAutoTable.finalY + 20;
+      } else {
+        yPos += 10;
+      }
+    }
+
+    doc.save("crop-disease-session-report.pdf");
   };
 
   const currentModel = MODEL_INFO[selectedModel] || {
@@ -111,6 +191,16 @@ function Dashboard() {
                 <strong>{currentModel.efficiency}</strong>
               </div>
             </div>
+          </div>
+
+          <div className="session-actions">
+            <button
+              className="download-session-btn"
+              onClick={downloadPDF}
+              disabled={history.length === 0}
+            >
+              Download Session Report (PDF)
+            </button>
           </div>
         </div>
 
@@ -180,18 +270,6 @@ function Dashboard() {
                         <span>{result.details.plant}</span>
                       </div>
                     )}
-                    {/* <div className="result-item">
-                      <label>Confidence:</label>
-                      <div className="confidence-bar-container">
-                        <div 
-                          className="confidence-bar" 
-                          style={{ width: `${(result.confidence * 100).toFixed(1)}%` }}
-                        ></div>
-                        <span className="confidence-value">
-                          {(result.confidence * 100).toFixed(1)}%
-                        </span>
-                      </div>
-                    </div> */}
                   </div>
 
                   {result.details?.about && (
@@ -237,6 +315,33 @@ function Dashboard() {
               </div>
             )}
           </div>
+
+          {history.length > 0 && (
+            <div className="history-section fade-in">
+              <h2>Session History</h2>
+              <div className="history-list">
+                {history.map((item, index) => (
+                  <div key={index} className="history-item">
+                    <img
+                      src={item.imagePreview}
+                      alt="Thumbnail"
+                      className="history-thumb"
+                    />
+                    <div className="history-info">
+                      <div className="history-header">
+                        <strong>{item.prediction}</strong>
+                        <span>{item.timestamp}</span>
+                      </div>
+                      <p>
+                        Model: {item.model_used} | Confidence:{" "}
+                        {(item.confidence * 100).toFixed(1)}%
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
