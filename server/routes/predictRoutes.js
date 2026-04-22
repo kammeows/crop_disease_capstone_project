@@ -12,9 +12,9 @@ router.post("/", upload.single("file"), async (req, res) => {
     const formData = new FormData();
     formData.append("file", req.file.buffer, req.file.originalname);
     // "http://localhost:8000/predict"
-
+    // http://ml-service:8000/predict
     const response = await axios.post(
-      "http://ml-service:8000/predict",
+      "http://localhost:8000/predict",
       formData,
       {
         headers: formData.getHeaders(),
