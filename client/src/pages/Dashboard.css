@@ -1,9 +1,10 @@
 .dashboard-container {
   min-height: calc(100vh - 80px);
-  background-color: #f0f4f8;
+  background-color: #ffffff; /* Set to white */
   padding: 40px 20px;
   display: flex;
   justify-content: center;
+  color: #000000; /* Set text to black */
 }
 
 .dashboard-layout {
@@ -15,10 +16,11 @@
 
 .sidebar {
   flex: 0 0 300px;
-  background: white;
+  background: #ffffff; /* White background */
   padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  border: 1px solid #e0e0e0; /* Subtle border for separation */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   height: fit-content;
   position: sticky;
   top: 100px;
@@ -31,12 +33,12 @@
 
 .sidebar h3 {
   margin-top: 0;
-  color: #2c3e50;
+  color: #000000; /* Black text */
   font-size: 1.4rem;
 }
 
 .sidebar-subtitle {
-  color: #7f8c8d;
+  color: #333333; /* Dark gray for subtitle */
   font-size: 0.9rem;
   margin-bottom: 20px;
 }
@@ -45,32 +47,28 @@
   width: 100%;
   padding: 12px;
   border-radius: 8px;
-  border: 1px solid #dcdde1;
-  background-color: #f9f9f9;
+  border: 1px solid #000000; /* Black border */
+  background-color: #ffffff;
+  color: #000000;
   font-size: 1rem;
   margin-bottom: 25px;
   cursor: pointer;
   outline: none;
-  transition: border-color 0.3s;
-}
-
-.model-select:focus {
-  border-color: #27ae60;
 }
 
 .model-details {
-  border-top: 1px solid #eee;
+  border-top: 1px solid #e0e0e0;
   padding-top: 20px;
 }
 
 .model-details h4 {
   margin: 0 0 10px 0;
-  color: #27ae60;
+  color: #000000;
 }
 
 .model-desc {
   font-size: 0.95rem;
-  color: #34495e;
+  color: #000000;
   line-height: 1.5;
   margin-bottom: 20px;
 }
@@ -88,29 +86,30 @@
 }
 
 .stat-item span {
-  color: #7f8c8d;
+  color: #333333;
 }
 
 .stat-item strong {
-  color: #2c3e50;
+  color: #000000;
 }
 
 .dashboard-card {
-  background: white;
+  background: #ffffff;
   padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
 .dashboard-card h1 {
   margin-top: 0;
-  color: #2c3e50;
+  color: #000000;
   font-size: 2rem;
 }
 
 .subtitle {
-  color: #7f8c8d;
+  color: #333333;
   margin-bottom: 30px;
 }
 
@@ -130,26 +129,26 @@ input[type="file"] {
   display: inline-block;
   padding: 12px 24px;
   cursor: pointer;
-  background-color: #f1f2f6;
-  color: #2c3e50;
+  background-color: #ffffff;
+  color: #000000;
   border-radius: 8px;
   font-weight: 600;
   transition: all 0.3s;
-  border: 1px solid #dcdde1;
+  border: 1px solid #000000;
 }
 
 .custom-file-upload:hover {
-  background-color: #dfe4ea;
+  background-color: #f0f0f0;
 }
 
 .file-name {
   font-size: 0.85rem;
-  color: #7f8c8d;
+  color: #000000;
 }
 
 .preview-section {
   margin: 20px 0;
-  border: 2px dashed #dcdde1;
+  border: 2px dashed #000000;
   border-radius: 12px;
   padding: 10px;
   display: inline-block;
@@ -157,14 +156,14 @@ input[type="file"] {
 
 .preview-section img {
   max-width: 100%;
-  max-height: 300px;
+  max-height: 400px;
   border-radius: 8px;
   display: block;
 }
 
 .analyze-btn {
-  background-color: #27ae60;
-  color: white;
+  background-color: #000000; /* Black button */
+  color: #ffffff; /* White text */
   border: none;
   padding: 15px 40px;
   font-size: 1.1rem;
@@ -181,12 +180,12 @@ input[type="file"] {
 }
 
 .analyze-btn:hover:not(:disabled) {
-  background-color: #219150;
+  background-color: #333333;
   transform: translateY(-2px);
 }
 
 .analyze-btn:disabled {
-  background-color: #bdc3c7;
+  background-color: #cccccc;
   cursor: not-allowed;
 }
 
@@ -207,24 +206,23 @@ input[type="file"] {
   margin-top: 35px;
   padding: 30px;
   background-color: #ffffff;
-  border: 1px solid #e1e8ed;
+  border: 1px solid #000000;
   border-radius: 12px;
   text-align: left;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .result-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #f1f4f6;
+  border-bottom: 2px solid #e0e0e0;
   padding-bottom: 15px;
   margin-bottom: 25px;
 }
 
 .result-header h3 {
   margin: 0;
-  color: #2c3e50;
+  color: #000000;
 }
 
 .status-badge {
@@ -233,16 +231,17 @@ input[type="file"] {
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
+  border: 1px solid #000000;
 }
 
 .status-badge.healthy {
-  background-color: #e8f5e9;
-  color: #2e7d32;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .status-badge.diseased {
-  background-color: #ffebee;
-  color: #c62828;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .result-main {
@@ -256,24 +255,27 @@ input[type="file"] {
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-wrap: wrap; /* Added for responsiveness */
 }
 
 .result-item label {
   font-weight: 600;
-  color: #7f8c8d;
+  color: #000000;
   min-width: 100px;
 }
 
 .prediction-text {
   font-size: 1.4rem;
   font-weight: 800;
-  color: #27ae60;
+  color: #000000;
 }
 
 .confidence-bar-container {
   flex: 1;
+  min-width: 200px; /* Added for responsiveness */
   height: 20px;
-  background-color: #ecf0f1;
+  background-color: #f0f0f0;
+  border: 1px solid #000000;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
@@ -281,7 +283,7 @@ input[type="file"] {
 
 .confidence-bar {
   height: 100%;
-  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  background-color: #000000;
   transition: width 0.8s ease-out;
 }
 
@@ -292,11 +294,14 @@ input[type="file"] {
   transform: translateY(-50%);
   font-size: 0.75rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #000000;
+  mix-blend-mode: difference; /* Ensures visibility on black bar */
+  filter: invert(1);
 }
 
 .disease-info-section {
-  background-color: #f8f9fa;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 25px;
@@ -304,34 +309,34 @@ input[type="file"] {
 
 .disease-info-section h4 {
   margin-top: 0;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 10px;
 }
 
 .disease-info-section p {
-  color: #546e7a;
+  color: #000000;
   line-height: 1.6;
   margin: 0;
 }
 
 .disease-details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
 .info-block {
   background-color: white;
-  border: 1px solid #f1f4f6;
+  border: 1px solid #e0e0e0;
   padding: 15px;
   border-radius: 10px;
 }
 
 .info-block h4 {
   margin-top: 0;
-  color: #27ae60;
+  color: #000000;
   font-size: 1rem;
-  border-bottom: 1px solid #f1f4f6;
+  border-bottom: 1px solid #e0e0e0;
   padding-bottom: 8px;
   margin-bottom: 12px;
 }
@@ -342,7 +347,7 @@ input[type="file"] {
 }
 
 .info-block li {
-  color: #546e7a;
+  color: #000000;
   font-size: 0.9rem;
   margin-bottom: 8px;
   line-height: 1.4;
@@ -357,6 +362,7 @@ input[type="file"] {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Responsiveness Fixes */
 @media (max-width: 992px) {
   .dashboard-layout {
     flex-direction: column;
@@ -366,5 +372,30 @@ input[type="file"] {
     position: static;
     flex: none;
     width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-container {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-card {
+    padding: 20px;
+  }
+  
+  .dashboard-card h1 {
+    font-size: 1.5rem;
+  }
+  
+  .prediction-text {
+    font-size: 1.2rem;
+  }
+  
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
