@@ -46,7 +46,8 @@ def get_model(model_name):
             
         print(f"[ML] Loading model from: {model_path}")
         try:
-            models_cache[model_name] = load_model(model_path)
+            # models_cache[model_name] = load_model(model_path)
+            models_cache[model_name] = load_model(model_path, compile=False)
             print(f"[ML] Model {model_name} loaded successfully")
         except Exception as e:
             print(f"[ML] ERROR loading {model_name}: {e}")

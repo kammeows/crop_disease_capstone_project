@@ -10,13 +10,13 @@ const MODEL_INFO = {
     efficiency: "High",
     accuracy: "98%",
   },
-  "model2.h5": {
-    name: "Alternative CNN Model",
-    description:
-      "An alternative high-performance model that also supports the full range of 38 disease classes.",
-    efficiency: "Medium",
-    accuracy: "96%",
-  },
+  // "model2.h5": {
+  //   name: "Alternative CNN Model",
+  //   description:
+  //     "An alternative high-performance model that also supports the full range of 38 disease classes.",
+  //   efficiency: "Medium",
+  //   accuracy: "96%",
+  // },
   "efficientNet_model.h5": {
     name: "Health Classifier",
     description:
