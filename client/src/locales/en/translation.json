@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Plant Leaf Disease Detection",
+  "pageSubtitle": "Upload a leaf image and let AI detect possible diseases",
+  "modelSelection": "Model Selection",
+  "chooseModel": "Choose the AI model for analysis",
+  "accuracy": "Accuracy",
+  "efficiency": "Efficiency",
+  "chooseImage": "Choose Image",
+  "changeImage": "Change Image",
+  "analyzeLeaf": "Analyze Leaf",
+  "analyzing": "Analyzing...",
+  "predictionResult": "Prediction Result",
+  "detected": "Detected",
+  "disease": "Disease",
+  "plant": "Plant",
+  "aboutDisease": "About the Disease",
+  "symptoms": "Symptoms",
+  "treatment": "Treatment",
+  "prevention": "Prevention",
+  "uploadAlert": "Please upload an image first",
+  "analysisFailed": "Analysis failed. Please try again."
+}

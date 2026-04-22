@@ -1,0 +1,22 @@
+{
+  "pageTitle": "पौधों की पत्ती रोग पहचान",
+  "pageSubtitle": "पत्ती की छवि अपलोड करें और AI को संभावित रोगों का पता लगाने दें",
+  "modelSelection": "मॉडल चयन",
+  "chooseModel": "विश्लेषण के लिए AI मॉडल चुनें",
+  "accuracy": "सटीकता",
+  "efficiency": "दक्षता",
+  "chooseImage": "छवि चुनें",
+  "changeImage": "छवि बदलें",
+  "analyzeLeaf": "पत्ती का विश्लेषण करें",
+  "analyzing": "विश्लेषण हो रहा है...",
+  "predictionResult": "पहचान परिणाम",
+  "detected": "पता लगाया गया",
+  "disease": "रोग",
+  "plant": "पौधा",
+  "aboutDisease": "रोग के बारे में",
+  "symptoms": "लक्षण",
+  "treatment": "उपचार",
+  "prevention": "रोकथाम",
+  "uploadAlert": "कृपया पहले एक छवि अपलोड करें",
+  "analysisFailed": "विश्लेषण विफल हुआ। कृपया पुनः प्रयास करें।"
+}

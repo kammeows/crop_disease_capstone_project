@@ -21,6 +21,27 @@ router.post("/", upload.single("file"), async (req, res) => {
       filename: req.file.originalname,
       contentType: req.file.mimetype,
     });
+
+    // server/routes/predictRoutes.js
+
+const diseaseTranslations = {
+  "Northern Leaf Blight": "उत्तरी पत्ती झुलसा",
+  "Common Rust": "सामान्य रस्ट",
+  "Healthy": "स्वस्थ",
+  "Gray Leaf Spot": "धूसर पत्ती धब्बा",
+  // add more as needed...
+};
+
+router.post('/predict', async (req, res) => {
+  // your existing prediction code here...
+  
+  const mlResult = "Northern Leaf Blight"; // whatever your ML returns
+
+  res.json({
+    disease_en: mlResult,
+    disease_hi: diseaseTranslations[mlResult] || mlResult // fallback to English if not found
+  });
+}); 
     
     // Get model from body, default to the 38-class model
     const modelName = req.body.model || "default_model_38.h5";

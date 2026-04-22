@@ -5,6 +5,8 @@ import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import OAuthSuccess from "./pages/OAuthSuccess";
 import PrivateRoute from "./components/PrivateRoute";
+import './i18n'; // add this at the top
+import './i18n';  // ← just this line, nothing else changes
 
 function App() {
   return (
